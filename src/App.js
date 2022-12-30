@@ -7,21 +7,31 @@ function App() {
 
   useEffect(() => {
     const newPastStrings = [];
-    for (let i = 0; i < 20; i++) newPastStrings.push(generateString(25));
+    for (let i = 0; i < 30; i++) newPastStrings.push(generateString(25));
     setPastStrings(newPastStrings);
+
     let newPos = [];
-    for (let i = 0; i < 100; i++)
-      newPos.push({
-        x: 450 + Math.floor(Math.random() * (window.innerWidth - 450)),
-        y: Math.floor(Math.random() * window.innerHeight),
-      });
+    if (window.innerWidth < 600) {
+      for (let i = 0; i < 100; i++)
+        newPos.push({
+          x: Math.floor(Math.random() * window.innerWidth),
+          y: 200 + Math.floor(Math.random() * window.innerHeight),
+        });
+    } else {
+      for (let i = 0; i < 100; i++)
+        newPos.push({
+          x: 450 + Math.floor(Math.random() * (window.innerWidth - 450)),
+          y: Math.floor(Math.random() * window.innerHeight),
+        });
+    }
+
     setPos(newPos);
   }, []);
 
   var repeat = window.setInterval(() => {
     setPastStrings(
       [generateString(25)].concat(
-        pastStrings.slice(0, Math.min(pastStrings.length, 20))
+        pastStrings.slice(0, Math.min(pastStrings.length, 30))
       )
     );
   }, 250);

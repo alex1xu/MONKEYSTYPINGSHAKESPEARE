@@ -14,12 +14,12 @@ body {
 
 .monkey-container {
   position: absolute;
-  animation: 0.05s infinite alternate shake2;
+  animation: 0.05s infinite alternate shake2, 0.05s infinite alternate wobble1;
 }
 
 .monkey-container2 {
   position: absolute;
-  animation: 0.05s infinite alternate shake3;
+  animation: 0.05s infinite alternate shake3, 0.05s infinite alternate wobble2;
 }
 
 .monkey-body {
@@ -34,6 +34,15 @@ body {
   z-index: 2;
   transform-origin: 0% 0%;
   animation: 0.05s infinite alternate type1;
+}
+
+.monkey-front2 {
+  position: absolute;
+  left: 50px;
+  top: 60px;
+  z-index: 2;
+  transform-origin: 0% 0%;
+  animation: 0.05s infinite alternate type2;
 }
 
 .monkey-back {
@@ -51,6 +60,22 @@ body {
   z-index: 0;
   transform-origin: 0% 0%;
   animation: 0.05s infinite alternate type3;
+}
+@keyframes wobble1 {
+  from {
+    transform: translate(5px, 0);
+  }
+  to {
+    transform: translate(-5px, 0);
+  }
+}
+@keyframes wobble2 {
+  from {
+    transform: translate(-5px, 0);
+  }
+  to {
+    transform: translate(5px, 0);
+  }
 }
 @keyframes shake1 {
   from {
